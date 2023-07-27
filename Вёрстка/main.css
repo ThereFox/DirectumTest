@@ -37,25 +37,22 @@ body::-webkit-scrollbar{
 
 .header__NavList{
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-between ;
     vertical-align: middle;
     flex-direction: row;
     margin-top: 32px;
+    width: 100%;
 }
-.header__NavList__Item{
 
-}
 
 .MainInfo{
-
-    height: 800px;
     padding: 232px 0 129px 0;
 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    gap: 48px;
     background: #17A2B8;
 }
 .greetings{
@@ -72,11 +69,13 @@ body::-webkit-scrollbar{
 
 .greetings__text
 {
+    text-align: center;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    
 }
 .greetings__registrate
 {
@@ -103,7 +102,6 @@ body::-webkit-scrollbar{
 .galery{
     background: #F8F9FA;
     width: 100vw;
-    height: 75vh;
 
 }
 .speekers{
@@ -135,6 +133,7 @@ body::-webkit-scrollbar{
     justify-content: center;
     align-items: center;
     align-content: center;
+    text-align: center;
 }
 
 .speekersList__item__image
@@ -157,12 +156,14 @@ a :hover,
 a :active,
 a
 {
-    color: black;
+    color: #fff;
     text-decoration: none;
 }
 .footer{
     background: #F8F9FA;
     padding: 52px 0;
+
+    position: relative;
 
     display: flex;
     justify-content: center;
@@ -174,31 +175,46 @@ a
 
 }
 
-@media screen and (height: 100vh)
+@media (min-height = 100vh)
 {
     .footer{
-        position: relative;
+        position: absolute;
         bottom: 0;
         left: 0;
+        right: 0;
     }
 }
 
-@keyframes SlideChange
+@keyframes SlideChangeHiding
 {
-    0%
+    form
     {
-        opacity: 0;
+        transform: translateX(-10000px);
     }
     50%
     {
-        opacity: 0.5;
+        transform: translateX(-500px);
     }
-    100%
+    to
     {
-        opacity: 1;
+        transform: translateX(0);
     }
 }
-
+@keyframes SlideChangeShowing
+{
+    form
+    {
+        transform: translateX(0);
+    }
+    50%
+    {
+        transform: translateX(500px);
+    }
+    to
+    {
+        transform: translateX(10000px);
+    }
+}
 .slide
 {
 
@@ -207,23 +223,500 @@ a
 .galery{
     
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 35px;
+    flex-direction: column;
 }
 
 .controllers{
     
-    position:sticky;
-    bottom: -48px;
+    position:relative;
+    bottom: 48px;
     left: 0;
     right: 0;
 
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 8px;
 }
 
 .controllers button
 {
     width: 30px;
     height: 3px;
+    background: #E6B37A;
+    border: 0;
+    cursor: pointer;
+}
 
+.controllers button.Active
+{
+    background: #FF8A00;
+}
+
+.popup
+{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.popup__background .registration
+{
+    position: relative;
+    padding: 32px 32px 35px 32px;
+
+}
+
+.popup__background
+{
+    position: relative;
+    background: #F8F9FA;
+    width: 404px;
+    height: 252px;
+
+    filter: drop-shadow(0px 0px 15px rgba(0, 0, 0, 0.10));
+}
+
+.popup__background form
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 24px ;
+}
+
+.popup.hide
+{
+    visibility: hidden;
+}
+
+.popup__background .inputs
+{
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 16px;
+}
+.popup__background .inputs input
+{
+    width: 100%;
+    padding: 6px 8px;
+    color: #B5BFC3;
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    box-sizing: border-box;
+    border: 1px solid #B5BFC3;
+}
+
+.popup__background .centrolise
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup__background .centrolise input
+{
+    padding: 8px 14px 12px 14px;
+    color: #FFF;
+    text-align: center;
+    font-family: Open Sans;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    border-radius: 4px;
+    background: #2F418A;
+    border: 0;
+}
+
+.registration form h2
+{
+    color: #9FA3AB;
+font-family: Roboto;
+font-size: 26px;
+font-style: normal;
+font-weight: 300;
+line-height: 105.469%;
+}
+
+.closePicture
+{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    z-index: 15;
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    margin: auto;
+
+    cursor: pointer;
+
+    display: flex;
+}
+
+.HidedImage
+{
+    display: none;
+}
+
+.RigthSideController, .LeftSideController
+{
+    width: 150px;
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    opacity: 0;
+}
+.RigthSideController
+{
+    cursor: pointer;
+    right: 0;
+}
+.LeftSideController
+{
+    cursor: pointer;
+    left: 0;
+}
+
+.sliderComponent
+{
+    position: relative;
+}
+
+img
+{
+    max-width: 100vw;
+}
+
+.sliderComponent .slider picture.movedRight
+{
+    filter: blur(2px);
+    transition: 1s filter;
+}
+.sliderComponent .slider picture.movedLeft
+{
+    filter: blur(5px);
+    transition: 1s filter;
+}
+.sliderComponent .slider picture
+{
+    filter: blur(0);
+    transition: 1s filter;
+}
+/*
+.sliderComponent .slider picture img
+{
+    animation: 1s SlideChangeShowing ease-in 2s;
+}
+.sliderComponent .slider picture.HidedImage img
+{
+    animation: 1s SlideChangeHiding ease-in 2s;
+}
+*/
+
+.registrateButton
+{
+    padding: 17px 52px;
+    border-radius: 4px;
+    border: 0;
+    background: #2F418A;
+    color: #FFF;
+    text-align: center;
+    font-family: Segoe UI;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    cursor: pointer;
+}
+
+h1
+{
+    color: #FFF;
+    text-align: center;
+    font-family: Segoe UI;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+h2
+{
+color: #000;
+text-align: center;
+font-family: Segoe UI;
+font-size: 32px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+}
+h3
+{
+    color: #FFF;
+    text-align: center;
+    font-family: Segoe UI;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+h4
+{
+    color: #000;
+text-align: center;
+font-family: Segoe UI;
+font-size: 20px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+}
+caption
+{
+    color: #000;
+font-family: Segoe UI;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+
+figcaption
+{
+    color: #000;
+text-align: center;
+font-family: Segoe UI;
+font-size: 16px;
+font-style: italic;
+font-weight: 400;
+line-height: normal;
+}
+
+footer .copyright
+{
+    color: #BABABA;
+text-align: center;
+font-family: Segoe UI;
+font-size: 12px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+
+p
+{
+    color: #000;
+font-family: Segoe UI;
+font-size: 16px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+}
+
+table
+{
+    width: 100%;
+    clip: rect(10 10 10 10);
+}
+
+table,
+td
+{
+    border-top: 1px solid #DEE2E6;
+    border-collapse: collapse;
+}
+
+td,
+th
+{
+    text-align: start;
+    height: 61px;
+}
+
+th
+{
+    border-bottom: 2px #DEE2E6;
+
+    color: #000;
+    font-family: Segoe UI;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+
+}
+
+td
+{
+    color: #000;
+    font-family: Segoe UI;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.prising
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap:32px;
+}
+.prising__label
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: -2px;
+}
+
+section
+{
+    padding-top: 48px;
+}
+.greetings__container
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap:15px;
+}
+.greetings__container > div
+{
+padding: 0 15px;
+}
+
+.speekers h2
+{
+    content: "Наши спикеры";
+}
+
+.MainInfo__MainText
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap:32px;
+}
+.MainInfo__MainText__SubInfo
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap:24px;
+}
+
+
+@media (width < 769px ) and (width > 320px ) {
+    .greetings > div
+    {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+    .greetings__text
+    {
+        text-align: start;
+    }
+    .speekers h2
+    {
+        font-size: 0;
+    }
+    .speekers h2::after{
+        content: "Готовятся к общению";
+        font-size: 32px;
+    }
+
+    .MainInfo
+    {
+        
+        padding: 352px 0 240px 0;
+    }
+
+}
+
+@media (width < 321px ) {
+    
+    
+    h2
+    {
+        text-align: start;
+    }
+    caption
+    {
+        text-align: start;
+    }
+    .greetings > div
+    {
+        display: grid;
+        grid-template-rows: 1fr;
+    } 
+    .greetings__text
+    {
+        display: none;
+    }
+    .prising__label, .galery, .speekers
+    {
+        align-items: start;
+    }
+
+    .speekers h2
+    {
+        font-size: 0;
+    }
+    .speekers h2::after{
+        content: "Готовятся к общению";
+        font-size: 32px;
+    }
+    .MainInfo__MainText
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap:24px;
+    }
+    .MainInfo__MainText__SubInfo
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap:16px;
+    }
+    .MainInfo
+    {
+        gap: 0;
+        padding: 78px 0 44px 0;
+    }
 }

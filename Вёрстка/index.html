@@ -33,16 +33,41 @@
                         <img src="./Images/mainLogo.png" />
                     </picture>
                 </div>
-                <h1>Название мероприятия</h1>
-                <h2>4 мая 2049</h2>
-                <h3>в самом сердце страны</h3>
-
-                <button>Регистрация</button>
+                <span class="MainInfo__MainText">
+                    <h1>Название мероприятия</h1>
+                    <span class="MainInfo__MainText__SubInfo">
+                        <h3>4 мая 2049</h3>
+                        <h3>в самом сердце страны</h3>
+                    </span>
+                </span>
+                <button class="registrateButton">Регистрация</button>
         </section>
+        <div class="popup hide">
+            <div class="popup__background">
+                <div class="closePicture">
+                    <picture>
+                        <source srcset="./Images/close.svg" />
+                        <img src="./Images/close.svg" />
+                    </picture>
+                </div>
+                <div class="registration">
+                    <form>
+                        <h2>Регистрация</h2>
+                        <div class="inputs">
+                            <input placeholder="ФИО" type="text" required /> 
+                            <input placeholder="Email" type="text" pattern="[A-Za-z]{3,32}@[a-z]{3,10}.[a-z]{2,4}" required />
+                        </div>
+                        <div class="centrolise">
+                            <input type="submit" value="Регистрация"  title="Регистрация" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
         <section class="greetings container" id="greetings">
-            <div>
+            <div class="greetings__container">
                 <div class="greetings__text">
-                    <h6>Hello</h6>
+                    <p>Дорогие друзья!</p>
                     <p> 
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                     </p>
@@ -51,7 +76,7 @@
                     </p>
                 </div>
                 <div class="greetings__registrate">
-                    <h6>Регистрация</h6>
+                    <h2>Регистрация</h2>
                     <p>Пожалуйста, проверьте правильность введенных данных:</p>
                     <div class="greetings__registrate__preview">
                         <div>
@@ -71,13 +96,13 @@
         </section>
 
         <section class="prising container" id="prising">
-            <span>
-                <h4>Стоимость участия</h4>
-                <h5>(на 1 человека)</h5>
+            <span class="prising__label">
+                <h2>Стоимость участия</h2>
+                <caption>(на 1 человека)</caption>
             </span>
 
 
-            <table>
+            <table class="priseTable">
                 <tr>
                     <th></th>
                     <th>Стоимость ДО 1 января</th>
@@ -98,92 +123,105 @@
         </section>
 
         <section class="galery" id="galery">
-            <h4>Galery</h4>
-            <div class="slider">
-
-            </div>
-            <div class="controllers">
-                <button class="controllers__item"></button>
-                <button class="controllers__item"></button>
-                <button class="controllers__item"></button>
+            <h2>Галерея</h2>
+            <div class="sliderComponent">
+                <div class="slider">
+                    <picture>
+                        <source srcset="" />
+                        <img src="./Images/pickachu/image 3.png" />
+                    </picture>
+                    <picture>
+                        <source srcset="" />
+                        <img src="./Images/pickachu/image 2.png" />
+                    </picture>
+                    <picture>
+                        <source srcset="" />
+                        <img src="./Images/pickachu/image.png" />
+                    </picture>
+                </div>
+                <div class="controllers">
+                </div>
+                <div class="RigthSideController"></div>
+                <div class="LeftSideController"></div>
             </div>
         </section>
         <section class="speekers container" id="speekers">
 
-            <h3>Спикеры</h3>
+            <h2>Наши спикеры</h2>
 
             <div class="speekersList">
+
                 <div class="speekersList__item">
                     <picture class="speekersList__item__image">
                         <source srcset="./Images/pickachu/image 2.png">
-                        <img src="./Images/pickachu/image 2.png"  />
+                        <img src="./Images/speeker.png"  />
                     </picture>
-                    <h5>
+                    <h4>
                         Детектив
-                    </h5>
-                    <h6>
+                    </h4>
+                    <figcaption>
                         уморительный, остроумный и обаятельный сыщик
-                    </h6>
+                    </figcaption>
                 </div>
                 <div class="speekersList__item">
                     <picture class="speekersList__item__image">
                         <source srcset="./Images/pickachu/image 2.png">
-                        <img src="./Images/pickachu/image 2.png"  />
+                        <img src="./Images/speeker.png"  />
                     </picture>
-                    <h5>
+                    <h4>
                         Детектив
-                    </h5>
-                    <h6>
+                    </h4>
+                    <figcaption>
                         уморительный, остроумный и обаятельный сыщик
-                    </h6>
+                    </figcaption>
                 </div>
                 <div class="speekersList__item">
                     <picture class="speekersList__item__image">
                         <source srcset="./Images/pickachu/image 2.png">
-                        <img src="./Images/pickachu/image 2.png"  />
+                        <img src="./Images/speeker.png"  />
                     </picture>
-                    <h5>
+                    <h4>
                         Детектив
-                    </h5>
-                    <h6>
+                    </h4>
+                    <figcaption>
                         уморительный, остроумный и обаятельный сыщик
-                    </h6>
+                    </figcaption>
                 </div>
                 <div class="speekersList__item">
                     <picture class="speekersList__item__image">
                         <source srcset="./Images/pickachu/image 2.png">
-                        <img src="./Images/pickachu/image 2.png"  />
+                        <img src="./Images/speeker.png"  />
                     </picture>
-                    <h5>
+                    <h4>
                         Детектив
-                    </h5>
-                    <h6>
+                    </h4>
+                    <figcaption>
                         уморительный, остроумный и обаятельный сыщик
-                    </h6>
+                    </figcaption>
                 </div>
                 <div class="speekersList__item">
                     <picture class="speekersList__item__image">
                         <source srcset="./Images/pickachu/image 2.png">
-                        <img src="./Images/pickachu/image 2.png"  />
+                        <img src="./Images/speeker.png"  />
                     </picture>
-                    <h5>
+                    <h4>
                         Детектив
-                    </h5>
-                    <h6>
+                    </h4>
+                    <figcaption>
                         уморительный, остроумный и обаятельный сыщик
-                    </h6>
+                    </figcaption>
                 </div>
                 <div class="speekersList__item">
                     <picture class="speekersList__item__image">
                         <source srcset="./Images/pickachu/image 2.png">
-                        <img src="./Images/pickachu/image 2.png"  />
+                        <img src="./Images/speeker.png"  />
                     </picture>
-                    <h5>
+                    <h4>
                         Детектив
-                    </h5>
-                    <h6>
+                    </h4>
+                    <figcaption>
                         уморительный, остроумный и обаятельный сыщик
-                    </h6>
+                    </figcaption>
                 </div>
             </div>
         </section>
@@ -197,5 +235,8 @@
                 © DIRECTUM, 2019
             </h6>
     </footer>
+
+    <script src="./registration.js" ></script>
+    <script src="./slider.js" ></script>
 </body>
 </html>
