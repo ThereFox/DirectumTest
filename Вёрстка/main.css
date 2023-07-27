@@ -662,11 +662,17 @@ padding: 0 15px;
         
         padding: 352px 0 240px 0;
     }
+    .container > *{
+        max-width: 690px;
+    }
 
 }
 
 @media (width < 321px ) {
     
+    .container > *{
+        max-width: 300px;
+    }
     
     h2
     {
@@ -705,6 +711,7 @@ padding: 0 15px;
         align-items: center;
         flex-direction: column;
         gap:24px;
+        margin-bottom: 16px;
     }
     .MainInfo__MainText__SubInfo
     {
@@ -716,7 +723,33 @@ padding: 0 15px;
     }
     .MainInfo
     {
-        gap: 0;
+        gap: 16px;
+        justify-content: flex-start;
         padding: 78px 0 44px 0;
+    }
+
+    .header
+    {
+        width: 25px;
+        height: 14px;
+        z-index: 4;
+    }
+
+    .header::after
+    {
+       width: 25px;
+       height: 14px;
+       background-image: url("./Images/burgerMenu.svg");
+        content: "";
+
+        position: absolute;
+        top: 16px;
+        left: 20px;
+
+    }
+
+    .header__NavList
+    {
+        display: none;
     }
 }
