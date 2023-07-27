@@ -665,7 +665,10 @@ padding: 0 15px;
     .container > *{
         max-width: 690px;
     }
-
+    .controllers
+    {
+        bottom: 24.6px;
+    }
 }
 
 @media (width < 321px ) {
@@ -795,5 +798,9 @@ padding: 0 15px;
     .header.container > *
     {
         max-width: 100vw;
+    }
+    .controllers
+    {
+        bottom: 16.83px;
     }
 }
