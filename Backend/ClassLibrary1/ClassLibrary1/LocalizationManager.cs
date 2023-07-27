@@ -37,6 +37,8 @@ namespace ClassLibrary1
 
         public void RegisterSource(ILocalisationStringSource sourse)
         {
+            ArgumentNullException.ThrowIfNull(sourse, nameof(sourse));
+
             _sourses.Add(sourse);
         }
 
