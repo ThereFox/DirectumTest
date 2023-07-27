@@ -730,9 +730,8 @@ padding: 0 15px;
 
     .header
     {
-        width: 25px;
-        height: 14px;
-        z-index: 4;
+        position: absolute;
+        height: 100vh;
     }
 
     .header::after
@@ -746,10 +745,55 @@ padding: 0 15px;
         top: 16px;
         left: 20px;
 
+        cursor: pointer;
+        pointer-events: all;
     }
 
-    .header__NavList
+
+    .header__NavList:not(.Open)
     {
+        margin-top: 0;
         display: none;
+    }
+
+    .header__NavList.Open
+    {
+        margin-top: 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+        background-color: #2F418A;
+        z-index: 10;
+    }
+
+    .header__NavList.Open::after
+    {
+       width: 25px;
+       height: 25px;
+       background-repeat: no-repeat;
+       background-image: url("./Images/CloseMenuBurger.svg");
+        content: "";
+
+        position: absolute;
+        top: 16px;
+        left: 20px;
+
+        z-index: 15;
+
+        cursor: pointer;
+        pointer-events: all;
+    }
+
+    .header.container > *
+    {
+        max-width: 100vw;
     }
 }
